@@ -1,0 +1,39 @@
+﻿@model RejOsobZaginionych.Models.Osoba
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div>
+        @Html.LabelFor(m => m.Imie)
+        @Html.TextBoxFor(m => m.Imie)
+        @Html.ValidationMessageFor(m => m.Imie)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Nazwisko)
+        @Html.TextBoxFor(m => m.Nazwisko)
+        @Html.ValidationMessageFor(m => m.Nazwisko)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.DataZaginiecia)
+        @Html.TextBoxFor(m => m.DataZaginiecia)
+        @Html.ValidationMessageFor(m => m.DataZaginiecia)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Plec)
+        @Html.DropDownListFor(m => m.Plec, new SelectList(new List<string> { "Mezczyzna", "Kobieta" }))
+        @Html.ValidationMessageFor(m => m.Plec)
+    </div>
+
+    <input type="submit" value="Zapisz zmiany" />
+}
+
+<div>
+    @Html.ActionLink("Powrót do listy", "Index")
+</div>
